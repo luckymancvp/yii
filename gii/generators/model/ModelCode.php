@@ -107,7 +107,7 @@ class ModelCode extends CCodeModel
 
             // DAO
 			$this->files[]=new CCodeFile(
-				Yii::getPathOfAlias($this->modelPath).'/'.$className.'Base.php',
+				Yii::getPathOfAlias('application').'/dao/'.$className.'Base.php',
 				$this->render($templatePath.'/model.php', $params)
 			);
 

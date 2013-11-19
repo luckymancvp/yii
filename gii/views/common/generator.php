@@ -48,7 +48,9 @@
 					?>
 				</th>
 			</tr>
-			<?php foreach($model->files as $i=>$file): ?>
+			<?php foreach($model->files as $i=>$file):
+                if (!preg_match("/\/models\//", $file->path)){
+            ?>
 			<tr class="<?php echo $file->operation; ?>">
 				<td class="file">
 					<?php echo CHtml::link(CHtml::encode($file->relativePath), array('code','id'=>$i), array('class'=>'view-code','rel'=>$file->path)); ?>
@@ -69,7 +71,7 @@
 					?>
 				</td>
 			</tr>
-			<?php endforeach; ?>
+			<?php } endforeach; ?>
 		</table>
 	<?php endif; ?>
 	</div>
