@@ -49,7 +49,7 @@
 				</th>
 			</tr>
 			<?php foreach($model->files as $i=>$file):
-                if (!preg_match("/\/models\//", $file->path)){
+
             ?>
 			<tr class="<?php echo $file->operation; ?>">
 				<td class="file">
@@ -71,7 +71,7 @@
 					?>
 				</td>
 			</tr>
-			<?php } endforeach; ?>
+			<?php endforeach; ?>
 		</table>
 	<?php endif; ?>
 	</div>

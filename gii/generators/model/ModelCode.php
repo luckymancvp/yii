@@ -111,11 +111,17 @@ class ModelCode extends CCodeModel
 				$this->render($templatePath.'/model.php', $params)
 			);
 
-            // Logic
-            $this->files[]=new CCodeFile(
+
+			// Logic
+            $file = new CCodeFile(
                 Yii::getPathOfAlias($this->modelPath).'/'.$className.'.php',
                 $this->render($templatePath.'/logic.php', $params)
             );
+			if (file_exists($file->path))
+				$file->operation = CCodeFile::OP_SKIP;
+			else
+				$file->operation = CCodeFile::OP_NEW;
+			$this->files[] = $file;
 		}
 	}
 
